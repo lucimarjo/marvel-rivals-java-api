@@ -1,10 +1,10 @@
-package com.estudo.rivals.service;
+package com.estudo.rivals.service.game;
 
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
 import com.estudo.rivals.client.rivalsApiClient;
-import com.estudo.rivals.constants.rivalsApiEndpoints;
+import com.estudo.rivals.constants.rivalsApiGameEndpoints;
 
 
 @Service
@@ -15,21 +15,21 @@ public class proficiencyService {
 
     public String getRewards(Integer id){
         return client.getRestClient().get()
-        .uri(rivalsApiEndpoints.HEROES + "/" + id + rivalsApiEndpoints.PROFICIENCY_REWARDS)
+        .uri(rivalsApiGameEndpoints.HEROES + "/" + id + rivalsApiGameEndpoints.PROFICIENCY_REWARDS)
         .retrieve()
         .body(String.class);
     }
 
     public String getQuests(Integer id){
         return client.getRestClient().get()
-        .uri(rivalsApiEndpoints.HEROES + "/" + id + rivalsApiEndpoints.PROFICIENCY_QUESTS)
+        .uri(rivalsApiGameEndpoints.HEROES + "/" + id + rivalsApiGameEndpoints.PROFICIENCY_QUESTS)
         .retrieve()
         .body(String.class);
     }
 
     public String getLevels(){
         return client.getRestClient().get()
-        .uri(rivalsApiEndpoints.PROFICIENCY_LEVELS)
+        .uri(rivalsApiGameEndpoints.PROFICIENCY_LEVELS)
         .retrieve()
         .body(String.class);
     }

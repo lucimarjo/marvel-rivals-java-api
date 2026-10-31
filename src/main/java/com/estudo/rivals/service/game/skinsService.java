@@ -1,9 +1,9 @@
-package com.estudo.rivals.service;
+package com.estudo.rivals.service.game;
 
 import org.springframework.stereotype.Service;
 
 import com.estudo.rivals.client.rivalsApiClient;
-import com.estudo.rivals.constants.rivalsApiEndpoints;
+import com.estudo.rivals.constants.rivalsApiGameEndpoints;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,14 +15,14 @@ public class skinsService {
 
     public String getSkinsHero(Integer heroId){
         return client.getRestClient().get()
-            .uri(rivalsApiEndpoints.SKINS + "?hero_id={heroId}", heroId)
+            .uri(rivalsApiGameEndpoints.SKINS + rivalsApiGameEndpoints.HERO_SKIN_ID, heroId)
             .retrieve()
             .body(String.class);
     }
 
     public String getSkinDetail(Integer skinId){
         return client.getRestClient().get()
-            .uri(rivalsApiEndpoints.SKINS + "/" + skinId)
+            .uri(rivalsApiGameEndpoints.SKINS + "/" + skinId)
             .retrieve()
             .body(String.class);
     }
